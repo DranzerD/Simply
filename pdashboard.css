@@ -1,0 +1,213 @@
+/* General Styles */
+body {
+    font-family: 'Inter', sans-serif;
+    background-color: #F7FAFC;
+    color: #2D3748;
+    margin: 0;
+    padding: 0;
+  }
+  
+  /* Navigation Bar */
+  .navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px;
+    background-color: #2B6CB0;
+    color: #F7FAFC;
+  }
+  
+  .navbar .logo {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 1.5rem;
+    font-weight: bold;
+  }
+  
+  .navbar .logo svg {
+    width: 24px;
+    height: 24px;
+  }
+  
+  .navbar .tabs {
+    display: flex;
+    gap: 20px;
+  }
+  
+  .navbar .tabs a {
+    color: #F7FAFC;
+    text-decoration: none;
+    font-size: 1rem;
+  }
+  
+  .navbar .tabs a.active {
+    border-bottom: 2px solid #38A169;
+  }
+  
+  .navbar .upload-button {
+    background-color: #DD6B20;
+    color: #F7FAFC;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1rem;
+  }
+  
+  .navbar .upload-button:hover {
+    background-color: #C05621;
+  }
+  
+  /* Main Content Area */
+  .dashboard {
+    display: flex;
+    padding: 20px;
+    gap: 20px;
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+  
+  /* Records Grid */
+  .records-grid {
+    flex: 3;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: 20px;
+  }
+  
+  /* Record Card */
+  .card {
+    border: 1px solid #E2E8F0;
+    border-radius: 10px;
+    background-color: #FFFFFF;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: box-shadow 0.3s ease;
+  }
+  
+  .card:hover {
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+  }
+  
+  .card-header {
+    padding: 16px;
+  }
+  
+  .card-title {
+    font-size: 1rem;
+    font-weight: bold;
+    margin-bottom: 4px;
+  }
+  
+  .card-content {
+    padding: 16px;
+  }
+  
+  .thumbnail {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 120px;
+    background-color: #E2E8F0;
+    border-radius: 8px;
+    margin-bottom: 12px;
+  }
+  
+  .thumbnail svg {
+    width: 48px;
+    height: 48px;
+    color: #718096;
+  }
+  
+  .status-badge {
+    display: inline-block;
+    padding: 4px 8px;
+    border-radius: 4px;
+    font-size: 0.875rem;
+    margin-bottom: 12px;
+  }
+  
+  .status-badge.encrypted {
+    background-color: #38A169;
+    color: #F7FAFC;
+  }
+  
+  .status-badge.pending {
+    background-color: #ECC94B;
+    color: #2D3748;
+  }
+  
+  .actions {
+    display: flex;
+    gap: 8px;
+  }
+  
+  .actions button {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 8px;
+    border: none;
+    border-radius: 4px;
+    font-size: 0.875rem;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  .actions button.share {
+    background-color: #2B6CB0;
+    color: #F7FAFC;
+  }
+  
+  .actions button.share:hover {
+    background-color: #2A4365;
+  }
+  
+  .actions button.delete {
+    background-color: #E53E3E;
+    color: #F7FAFC;
+  }
+  
+  .actions button.delete:hover {
+    background-color: #C53030;
+  }
+  
+  /* Quick Stats Sidebar */
+  .quick-stats {
+    flex: 1;
+  }
+  
+  .quick-stats .card {
+    border: 1px solid #E2E8F0;
+    border-radius: 10px;
+    background-color: #FFFFFF;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  }
+  
+  .quick-stats .card-header {
+    padding: 16px;
+  }
+  
+  .quick-stats .card-title {
+    font-size: 1.25rem;
+    font-weight: bold;
+  }
+  
+  .quick-stats .card-content {
+    padding: 16px;
+  }
+  
+  .quick-stats .stat {
+    margin-bottom: 16px;
+  }
+  
+  .quick-stats .stat .label {
+    font-size: 0.875rem;
+    color: #718096;
+  }
+  
+  .quick-stats .stat .value {
+    font-size: 1.125rem;
+    font-weight: bold;
+  }

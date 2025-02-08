@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>HealthChain - Patient Dashboard</title>
+  <link rel="stylesheet" href="pdashboard.css">
+  
+</head>
+<body>
+  <!-- Navigation Bar -->
+  <div class="navbar">
+    <div class="logo">
+      <img src="https://img.icons8.com/ios-filled/50/ffffff/link.png" alt="Blockchain Icon">
+      HealthChain
+    </div>
+    <div class="tabs">
+      <a href="#" class="active">My Records</a>
+      <a href="#">Access Logs</a>
+      <a href="#">Profile</a>
+    </div>
+    <button class="upload-button" onclick="openUploadModal()">Upload New Record</button>
+  </div>
+
+  <!-- Main Content -->
+  <div class="dashboard">
+    <!-- Records Grid -->
+    <div class="records-grid">
+      <div class="record-card">
+        <div class="thumbnail">
+          <img src="https://img.icons8.com/ios-filled/50/000000/pdf.png" alt="PDF Icon">
+        </div>
+        <div class="metadata">
+          <div class="filename">2023_Lab_Report.pdf</div>
+          <div class="date">Jan 5, 2023</div>
+        </div>
+        <div class="status-badge encrypted">Encrypted</div>
+        <div class="actions">
+          <button>Share</button>
+          <button class="delete">Delete</button>
+        </div>
+      </div>
+      <!-- Add more record cards here -->
+    </div>
+
+    <!-- Quick Stats Sidebar -->
+    <div class="quick-stats">
+      <h2>Quick Stats</h2>
+      <div class="stat">
+        <div class="label">Providers Accessed Your Data</div>
+        <div class="value">3</div>
+      </div>
+      <div class="stat">
+        <div class="label">Files Securely Stored</div>
+        <div class="value">12</div>
+      </div>
+      <div class="stat">
+        <div class="label">Last Access</div>
+        <div class="value">ER Hospital, Mumbai (2 hrs ago)</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Upload Modal -->
+  <div class="upload-modal" id="uploadModal">
+    <div class="dropzone" onclick="handleFileUpload()">
+      <p>Drag & drop files here or click to upload</p>
+    </div>
+    <div class="toggle">
+      <input type="checkbox" id="encryptToggle" checked>
+      <label for="encryptToggle">Encrypt before upload</label>
+    </div>
+    <div class="actions">
+      <button class="cancel" onclick="closeUploadModal()">Cancel</button>
+      <button onclick="uploadFile()">Upload</button>
+    </div>
+  </div>
+
+  <script>
+    // Upload Modal Functionality
+    function openUploadModal() {
+      document.getElementById('uploadModal').classList.add('active');
+    }
+
+    function closeUploadModal() {
+      document.getElementById('uploadModal').classList.remove('active');
+    }
+
+    function handleFileUpload() {
+      const fileInput = document.createElement('input');
+      fileInput.type = 'file';
+      fileInput.onchange = (e) => {
+        const file = e.target.files[0];
+        console.log('File selected:', file.name);
+      };
+      fileInput.click();
+    }
+
+    function uploadFile() {
+      const encryptToggle = document.getElementById('encryptToggle').checked;
+      console.log(`Uploading file with encryption: ${encryptToggle}`);
+      closeUploadModal();
+    }
+  </script>
+</body>
+</html>

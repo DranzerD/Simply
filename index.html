@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>HealthChain - Login</title>
+  <link rel="stylesheet" href="index.css">
+</head>
+<body>
+  <div class="container">
+    <!-- Hero Section -->
+    <div class="hero-section">
+      <h1>HealthChain: Own Your Medical Records</h1>
+      <p>Securely share encrypted health data using blockchain technology</p>
+    </div>
+
+    <!-- Role Toggle -->
+    <div class="role-toggle">
+      <button class="active" onclick="setRole('patient')">I'm a Patient</button>
+      <button onclick="setRole('provider')">I'm a Provider</button>
+    </div>
+
+    <!-- Authentication Box -->
+    <div class="auth-box">
+      <button onclick="connectMetaMask()">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/3/36/MetaMask_Fox.svg" alt="MetaMask Logo">
+        Connect with MetaMask
+      </button>
+      <p>or <a href="#" class="mail">continue with email</a></p>
+    </div>
+
+    <!-- Educational Footer -->
+    <div class="footer">
+      <div class="footer-item">
+        <img src="https://img.icons8.com/ios-filled/50/ffffff/lock.png" alt="Lock Icon">
+        Encrypted
+      </div>
+      <div class="footer-item">
+        <img src="https://img.icons8.com/ios-filled/50/ffffff/link.png" alt="Chain Icon">
+        Immutable Records
+      </div>
+      <div class="footer-item">
+        <img src="https://img.icons8.com/ios-filled/50/ffffff/hospital.png" alt="Hospital Icon">
+        Global Access
+      </div>
+    </div>
+  </div>
+
+  <script>
+    // Role Toggle Functionality
+    function setRole(role) {
+      const buttons = document.querySelectorAll('.role-toggle button');
+      buttons.forEach(button => button.classList.remove('active'));
+      const activeButton = document.querySelector(`.role-toggle button[onclick="setRole('${role}')"]`);
+      activeButton.classList.add('active');
+      console.log(`Role set to: ${role}`);
+    }
+
+    // MetaMask Login Functionality
+    async function connectMetaMask() {
+      if (typeof window.ethereum !== 'undefined') {
+        try {
+          const accounts = await window.ethereum.request({ method: 'eth_requestAccounts' });
+          console.log('Connected:', accounts[0]);
+          alert(`Connected with MetaMask: ${accounts[0]}`);
+        } catch (error) {
+          console.error('Error connecting to MetaMask:', error);
+          alert('Failed to connect MetaMask. Please try again.');
+        }
+      } else {
+        alert('MetaMask is not installed. Please install it to continue.');
+      }
+    }
+  </script>
+</body>
+</html>
